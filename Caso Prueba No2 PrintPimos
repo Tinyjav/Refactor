@@ -1,0 +1,80 @@
+Proceso Numeros_Primos
+//Function Margenes
+Begin
+Inicio Procedimiento principal – MAIN
+DCL NumPrim	int  Dim(1000) ; 	// Arreglo “Number” de 1000 posiciones
+DCL ArrayPrim	LikeDs NumPrim;	//Declara “Array” con la estructura de NumPrim
+CalcularNumPrimos(ArrayPrim[]);	// procedimiento que haya números primos y los retorna en el arreglo “ArrayPrim”
+ImprimirNumPrimos(ArrayPrim[]);	// procedimiento que imprime los números primos hallados
+Fin Procedimiento principal
+End 
+
+
+CalcularNumPrimos (ArrPrim Int Dim(1000))
+Begin
+Dcl i int;
+PrimerosNumeros();	//Procedimiento que almacena en el arreglo el número 1 y numero 2 por ser fijos
+PrimosImpares();	//Procedimiento que recorre los números impares desde el 3 hasta el 1000
+End
+
+
+Primerosnumeros()
+Begin
+For i = 1 to 2;
+ArrPrim[i] +=1;
+EndFor;
+End
+
+
+PrimosImpares()
+Begin
+Dcl Zi int Inz 3;
+For i = 3 to 1000 : 2;	//ciclo desde 3 hasta 1000 con incrementos de a 2
+IF VerificarPrimo(i) = True;	//Procedimiento que verifica si el número es primo
+ArrPrim[Zi] =i;		//Almacena número primo en arreglo
+Zi +=1;
+		EndIf;
+EndFor;
+End
+
+
+ 
+VerificarPrimo( K int)
+Begin
+Contador int inz 2	//Variable entera se inicializa en 2
+J int inz 1	//Variable entera se inicializa en 2
+IndPrimo  *in Inz *on	//Variable boleana inicializa en True
+
+//Ciclo que verifica si es nuemro primo
+Dow IndPrimo = *ON and j<=k;
+     IF K % Contador = 0;
+IndPrimo = *Off;
+Salir;
+	     EndIf;
+	     Contador +=1;
+	EndDo;
+
+Return IndPrimo;			//Retorna Variable Boleana
+
+End
+
+
+
+
+ImprimirPrimos(PrimNumer int Dim(1000))
+Begin
+Fila 		int Inz 50;		//Filas a imprimir por página 
+Columna	Int Inz 4;		//columnas a imprimir por página
+NumPagOff 	int Inz 1;
+M		int Inz 1000;
+
+//Ciclo que recorre el arreglo de los números primeros calculados en el procedimiento CalcularNumPrimos
+For Zj = 1 To Longitud(PrimNumber[]  
+Dow NumPagOff <= M;
+		Display (“the Firts “ + PrimNumber[Zj]’ + “Prime Numbers  --- page” + NumPag);
+		Margenes(Fila, Columna)	//Función integrada que imprime
+		NumPAgOff += 1;
+EndDo;
+	EndFor;
+
+End
