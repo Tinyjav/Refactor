@@ -11,4 +11,49 @@ Las respuestas a los dos casos de la prueba “refactor” las informaré explic
 Método en Java == Procedimiento en RPG ILE
 Atributo en Java == Variable en RPG ILE
 Clase en Java == Es un contenedor o Programa en ILE Free
+
+Caso No 1 
+Parte conceptual – Realizar descripción breve y conceptual de problemas encontrados en Código Java Clase Parser.
+
+Explicación del código:
+import java.io.File; 
+import java.io.FileInputStream; 
+import java.io.FileOutputStream; 
+import java.io.IOException;
+Las sentencias declaras con Import son como librerías de trabajo en donde se almacenan diferentes funciones, procedimientos o en este caso de Java características para aplicar a un objeto, las cuales se utilizan dentro de la Clase.
+
+Clase Parser 
+Declara un objeto de tipo File llamado file, el cual tiene dos procedimientos (métodos) principales: 
+•	Set (Recibir desde otro procedimiento o método de otra clase)  Recibe en el objeto f de tipo File el archivo o ruta de archivo que otra Clase le envía, y lo deja en el objeto file para ser procesado en los demás métodos de la clase.
+•	Get (Retornar a otro procedimiento o método de otra clase)  Retorna el objeto file luego de ser procesado en los demás métodos de la clase.
+
+Procedimiento o método getContent() 
+Crea atributo o variable “i” de tipo FileInputStream con la ruta o archivo que recibió en el objeto “file”. Según lectura en la Red un FileInputStream obtiene los bytes de un archivo, en este caso del que recibió en el objeto file.
+Luego, crea un atributo o variable “Output” de tipo cadena de caracter y lo inicializa en blanco; y crea un variable “Data” de tipo entero.
+Y realiza un ciclo o recorrido leyendo el atributo “i” (lee el contenido del archivo) y almaceno caracter por caracter en la variable “output”.
+
+Procedimiento o método getContent WithoutUnicode()
+Es el mimo procedimiento o método anterior pero no escribe todos los caracteres, o mejor aún, valida que el caracter que se esta leyendo sea menor a 0*80 (dato hexadecimal = 128). Entiendo que no imprime caracteres especiales.
+ 
+Procedimiento o método SaveContent (String Content)
+Procedimiento o método que recibe desde otro método de otra clase un texto el cual se almacena en el atributo o variable “Content”.
+Crea atributo o variable “o” de tipo FileInputStream con la ruta o archivo que recibió en el objeto “file”.
+Realiza un ciclo For con un contador desde cero hasta la longitud de la cadena que esta en “Content”, con incrementos de 1. Y guarda en el nuevo archivo “o” caracter por caracter de la variable “Content”.
+
+Conclusiones:
+Problemas de lógica no encuentro a excepción que en el último método “SaveContent” NO se utiliza throws IOException. Creo que al no controlar el error en la grabación del archivo el proceso puede abortar. De igual forma tampoco estoy seguro de que al compilar debido a esto también se presente error. 
+
+
+Caso No 2 
+Refactor de Código.
+
+Explicación del código:
+Entiendo que está realizando un ciclo de los primeros 999 números (1 hasta 1000-1 –> K < M), y realiza una rutina de calculo para determinar si el número es primo. Posteriormente imprime cada número primo en páginas de 50 filas y 4 columnas (200 números por página)
+
+Problema identificado  todo el código está en un solo procedimiento principal, puede ser código limpio y su funcionalidad correcta, pero su estructura y apariencia no es la ideal.
+
+Solución sugerida  Utilizar un Proceso principal que internamente invoque a procedimientos. 
+El siguiente ejemplo de Refactorización lo haré en Pseudocódigo, reiterando que no conozco el lenguaje de Java.
+
+
 !!Muchas Gracias
